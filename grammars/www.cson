@@ -1,0 +1,51 @@
+# If this is your first time writing a language grammar, check out:
+#   - https://flight-manual.atom.io/hacking-atom/sections/creating-a-grammar/
+
+'scopeName': 'source.www'
+'name': 'Web (HTTP headers and WHOIS)'
+'fileTypes': [
+  'http'
+  'whois'
+]
+'patterns': [
+  {
+    'begin': '%'
+    'name': 'comment'
+  }
+  
+  {
+    comment: 'Match key value pair format found in HTTP headers and WHOIS'
+    name: 'keyword.other.www'
+    match: '\\b[\\/\\w\\- ]{0,256}:\\s'
+  }
+  
+  {
+    # adapted from https://github.com/snowydad/language-aliasworlds-ini/blob/aaa27851cf17c6bbbf9a2adb6c1bbdff9c0de22e/grammars/ini.cson#L81
+    'captures':
+      '1':
+        'name': 'markup.underline.link.http.hyperlink.www'
+      '2':
+        'name': 'markup.underline.link.http.hyperlink.www'
+    'match': '(http://|https://|ftp://|ftps://|sftp://|file://|smb://)(.*?)[\\s]*?$'
+    'name': 'string.uri.www'
+  }
+  
+  {
+    'begin': '"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.www'
+    'end': '"'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.www'
+    'name': 'string.quoted.double.www'
+    'patterns': [
+      {
+        'include': '#string_escaped_char'
+      }
+    ]
+  }
+  
+  # >>> <<<
+]

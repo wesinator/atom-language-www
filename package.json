@@ -1,0 +1,15 @@
+{
+  "name": "language-www",
+  "version": "0.0.0",
+  "description": "Syntax highlighting for network data, including HTTP requests and WHOIS information",
+  "keywords": [
+    "language",
+    "grammar",
+    "whois"
+  ],
+  "repository": "https://github.com/wesinator/atom-language-www",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
